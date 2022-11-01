@@ -37,24 +37,14 @@
         {
           id:2,
           name: "create"
-        },
-        {
-          id:3,
-          name: "update"
         }
       ] 
     }
   },
   methods:{
    direction(i:number){
-   this.$router.push({name:this.links[i].name})
-    
-  
+   this.$router.push({name:this.links[i].name})  
    }
   }
   })
   </script>
-  
-  <style>
-  
-  </style>

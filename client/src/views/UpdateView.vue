@@ -1,17 +1,42 @@
 <template>
-    <div>
-      This is Update Page.
-    </div>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  
-  export default defineComponent({
-  
-  })
-  </script>
-  
-  <style>
-  
-  </style>
+  <div>
+    <post-form :post="post" :submitForm="submitForm" />
+  </div>
+</template>
+
+<script lang="ts">
+import axios, { AxiosResponse } from "axios";
+import { defineComponent } from "vue";
+import PostForm from "../components/Crud/PostForm.vue";
+import CrudModels from "../models/CrudModels";
+
+export default defineComponent({
+  components: { PostForm },
+  data() {
+    return {
+      post: {
+        title: "",
+        content: "",
+        creator: "",
+      },
+      API_URL: "http://localhost:5000/crud",
+    };
+  },
+  methods: {
+    async submitForm() {
+      await axios.put(`${this.API_URL}/${this.$route.params.id}`, this.post);
+      this.$router.push({ name: "home" });
+    },
+    getPosts() {
+      axios(`${this.API_URL}/${this.$route.params.id}`).then(
+        (result: AxiosResponse<CrudModels>) => {
+          this.post = result.data;
+        }
+      );
+    },
+  },
+  mounted() {
+    this.getPosts();
+  },
+});
+</script>
