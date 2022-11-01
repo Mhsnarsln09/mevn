@@ -21,6 +21,7 @@ export default defineComponent({
         title: "",
         content: "",
         creator: "",
+        _id: "",
       },
       API_URL: "http://localhost:5000/crud",
     };
