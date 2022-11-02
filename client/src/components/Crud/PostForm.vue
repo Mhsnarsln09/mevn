@@ -55,7 +55,7 @@ export default defineComponent({
       get() {
         return this.post;
       },
-      set(value: any) {
+      set(value: Event) {
         this.$emit("sendPost", value);
       },
     },
