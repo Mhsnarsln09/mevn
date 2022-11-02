@@ -3,21 +3,21 @@
     <v-container>
       <v-form @submit.prevent="submitForm">
         <v-text-field
-          v-model="xxx.title"
+          v-model="postForm.title"
           color="primary"
           label="Title"
           variant="underlined"
         ></v-text-field>
 
         <v-text-field
-          v-model="xxx.content"
+          v-model="postForm.content"
           color="primary"
           label="Content"
           variant="underlined"
         ></v-text-field>
 
         <v-text-field
-          v-model="xxx.creator"
+          v-model="postForm.creator"
           color="primary"
           label="Creator"
           variant="underlined"
@@ -51,7 +51,7 @@ export default defineComponent({
     },
   },
   computed: {
-    xxx: {
+    postForm: {
       get() {
         return this.post;
       },

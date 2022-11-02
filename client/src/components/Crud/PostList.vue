@@ -52,7 +52,7 @@ export default defineComponent({
         }
       );
     },
-    editRoute(id: string) {
+    editRoute(id: string | null) {
       this.$router.push({
         name: "update",
         params: {
@@ -60,7 +60,7 @@ export default defineComponent({
         },
       });
     },
-    async removePost(id: string) {
+    async removePost(id: string | null) {
       await axios.delete(`${this.API_URL}/${id}`);
       this.getPosts();
     },
