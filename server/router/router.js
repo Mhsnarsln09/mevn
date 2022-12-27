@@ -30,9 +30,10 @@ router.get('/:id', async (req, res) => {
 // gönderi oluşturma
 router.post('/', async (req, res) => {
     try {
+    
         const post = req.body
         const createdPost = await Crud.create(post)
-        res.status(201).json(createdPost)
+        res.status(201).json({message:"message"})
     } catch (error) {
         console.log(error)
     }
